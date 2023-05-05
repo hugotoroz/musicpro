@@ -8,7 +8,7 @@ class Permiso(models.Model):
 class Rol(models.Model):
     id_rol = models.BigAutoField(primary_key=True)
     nombre_rol = models.CharField(max_length=50)
-    id_permiso = models.ForeignKey(Permiso)
+    id_permiso = models.ForeignKey(Permiso,on_delete=models.CASCADE,)
     pass
 # Los usuarios del sistema se dividirán por roles para saber si es cliente, vendedor, administrador, etc.
 class Usuario(models.Model):
@@ -17,6 +17,5 @@ class Usuario(models.Model):
     apellido = models.CharField(max_length=50)
     correo = models.CharField(max_length=200)
     direccion = models.CharField(max_length=50)
-    comuna = models.CharField(max_length=50)
     telefono = models.IntegerField()
-    id_rol = models.ForeignKey(Rol)
+    id_rol = models.ForeignKey(Rol,on_delete=models.CASCADE,)
