@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'api',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -78,11 +79,14 @@ WSGI_APPLICATION = 'musicpro.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'prueba_mp1',
+        'NAME': 'prueba_mp2',
         'USER': 'musicpro',
         'PASSWORD': '123',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '3306',
+        'OPTIONS':{
+            'init_command': 'SET default_storage_engine=INNODB',
+        },
     }
 }
 
