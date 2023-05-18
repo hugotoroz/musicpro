@@ -32,7 +32,9 @@ class Usuario(models.Model):
     apellido_usuario = models.CharField(max_length=50)
     celular = models.IntegerField()
     correo = models.CharField(max_length=200)
-    clave = models.CharField(max_length=100)
+    #
+    #CAMPO CLAVE BORRADO
+    #
     direccion = models.CharField(max_length=100)
     fk_id_rol = models.ForeignKey(Rol, on_delete=models.CASCADE,)
     fk_id_comuna = models.ForeignKey(Comuna, on_delete=models.CASCADE,)
