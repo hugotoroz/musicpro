@@ -1,9 +1,8 @@
 from django.urls import path
-from .views import index, lista_permisos, lista_roles, lista_usuarios
-
-urlpatterns = [
-    path('', index, name="index"),
-    path('lista_usuarios/', lista_usuarios, name="lista_usuarios"),
-    path('lista_roles/', lista_roles, name="lista_roles"),
-    path('lista_permisos/', lista_permisos, name="lista_permisos"),
-]
+from rest_framework import routers
+from .api import UsuarioViewSet,RolViewSet,PermisoViewSet
+router= routers.DefaultRouter()
+router.register('lista_users',UsuarioViewSet,'lista_users')
+router.register('lista_roles',RolViewSet,'lista_roles')
+router.register('lista_permisos',PermisoViewSet,'lista_permisos')
+urlpatterns = router.urls
