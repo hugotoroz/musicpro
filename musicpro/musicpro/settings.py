@@ -175,6 +175,10 @@ LOGOUT_REDIRECT_URL = '/'
 PUBLISHABLE_KEY = 'pk_test_51N8dRNDhCox3RGVY1ANKDbVMHf5pKALkRuOAdAssIkYXe5Fa6yxd0PYHTJjTKwQ4iwri616lGnRnq0IQQfDmmAMH005ZVIGUsj'
 SECRET_KEY = 'sk_test_51N8dRNDhCox3RGVYeRbWn9ZjCW7FBwY5DsDBb0LTTdlVSTuGFd69KjhWuoruOXHdghJGWFh4nN7m1alN66ZLn51J00FzhebERf'
 STRIPE_ENDPOINT_SECRET = 'whsec_55fe471ec073d0e19badc0d105dbd2b697b3a23d1d123626546cad66493442ef'
+
+
+#Comando necesario para que stripe se comunique y envíe los datos al views
+
 # stripe listen --forward-to localhost:8000/payment/webhook/
 
 #Basket session id (Coock ie)

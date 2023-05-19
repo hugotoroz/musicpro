@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from core.models import Usuario, Rol, Permiso
+from django.contrib.auth.models import User
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
@@ -18,6 +19,10 @@ class PermisosSerializer(serializers.ModelSerializer):
         fields = ['id_permiso','nombre_permiso']
         read_only_fields = ('id_permiso',)
         
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email']
 
 
 
