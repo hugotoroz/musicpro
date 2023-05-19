@@ -55,6 +55,7 @@
 
                 {% else %}
                 <a href="{% url 'cuenta:login' %}" class="btn btn-success me-2" role="button">Iniciar Sesión</a>
+                <a href="{% url 'cuenta:signup' %}" class="btn btn-outline-light me-2" role="button">Registrarse</a>
                 {% endif %}
 
                 <span class="me-3" style="color: white">{{ user.username }}</span>
