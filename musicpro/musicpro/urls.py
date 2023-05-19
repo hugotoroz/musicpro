@@ -15,9 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-
+    path('basket/', include('basket.urls', namespace='basket')),
+    # path('account/', include('account.urls', namespace='account')),
+    path('payment/', include('payment.urls', namespace='payment')),
+    path('cuenta/', include('cuenta.urls', namespace='cuenta')),
+    path('order/', include('order.urls', namespace='order')),
+    path('', include('store.urls', namespace='store')),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
