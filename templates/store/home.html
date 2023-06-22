@@ -6,36 +6,63 @@ Home
 
 {% block content %}
 <section class="py-5 text-center container">
-    <div class="col-lg-6 col-md-8 mx-auto">
-        <h1>MusicPro</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus amet error quaerat aperiam mollitia laudantium doloremque debitis incidunt, totam ipsa molestiae hic animi exercitationem suscipit fugiat molestias earum ipsam praesentium.</p>
-    </div>
+  <div class="col-lg-6 col-md-8 mx-auto">
+    <h1>MusicPro</h1>
+    <p>
+      Los distintos instrumentos y accesorios que se pueden encontrar en <strong>"MusicPro"</strong> son diversos, van desde
+      guitarras acústicas, guitarras eléctricas de 6 a 8 cuerdas, bajos activos y pasivos de 4 a 6 cuerdas, sets de
+      batería,
+      amplificadores, cabezales, accesorios y además artículos como audífonos, parlantes, interfaces, adaptadores,
+      pedales, cuerdas, etc, lo cual es posible gracias a que <strong>"MusicPro"</strong> tiene trato con marcas reconocidas.
+    </p>
+  </div>
 </section>
 
 <div class="album py-5 bg-light">
-    <div class="container">
+  <div class="container">
 
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            {% for product in products %}
-            <div class="col">
-                <div class="card shadow-sm">
-                  <img class="img-fluid" src="{{ product.image.url }}" alt="Responsive image">
-      
-                  <div class="card-body">
-                    <p class="card-text"><a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}">{{product.name}}</a></p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                      </div>
-                      <small class="text-muted">9 mins</small>
-                    </div>
-                  </div>
-                </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for product in products %}
+      <div class="col">
+        <div class="card shadow-sm">
+          <img class="img-fluid" src="{{ product.image.url }}" alt="Responsive image">
+
+          <div class="card-body">
+            <p class="card-text"><a class="text-dark text-decoration-none"
+                href="{{ product.get_absolute_url }}">{{product.name}}</a></p>
+            <div class="d-flex justify-content-center align-items-center">
+              <div class="btn-group">
+                <button id="add-button" type="button" value="{{product.id}}" class="btn btn-outline-primary">Añadir al carrito</button>
               </div>
-            {% endfor %}
-              
+            </div>
+          </div>
         </div>
+      </div>
+      {% endfor %}
+
     </div>
+  </div>
 </div>
+<script>
+  $(document).on('click', '#add-button', function (e) {
+      e.preventDefault();
+      $.ajax({
+          type: 'POST',
+          url: '{% url "basket:basket_add" %}',
+          data: {
+              productid: $('#add-button').val(),
+              productqty: 1,
+              csrfmiddlewaretoken: "{{csrf_token}}",
+              action: 'post'
+          },
+          success: function (json) {
+              document.getElementById("basket-qty").innerHTML = json.qty
+
+          },
+          error: function (xhr, errmsg, err) {
+
+          }
+      });
+  })
+</script>
 {% endblock %}

@@ -9,23 +9,23 @@
     <main class="pt-5">
         <div class="row g-3">
             <div class="col-md-5 col-lg-5 order-md-first bg-light">
-                <img style="width: 200px;" src="{{ product.image.url }}" alt="Responsive image">
+                <img style="width: 530px;" src="{{ product.image.url }}" alt="Responsive image">
             </div>
-            <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5 ">    
-                <h1 class="mb-0 h4">{{ product.name }}</h1>
-                <p><span class="lead">{{ product.brand }}</span></p>
-                <p>{{ product.description|slice:":155" }}...</p>
+            <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5 ">
+                <h1 class="mb-0 h4">{{ api.nombre }}</h1>
+                <p><span class="lead">{{ api.marca }}</span></p>
+                <p>{{ api.descripcion|slice:":155" }}...</p>
                 <div class="border">
                     <div class="border-bottom">
                         <div class="row p-3">
-                            <div class="col-6">Hardback</div>
-                            <div class="col-6 text-end"><span class="h4 fw-bold">${{ product.price }}</span></div>
+                            <div class="col-6">Precio</div>
+                            <div class="col-6 text-end"><span class="h4 fw-bold">${{ api.precio }}</span></div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="row p-3">
                             <div class="col-6">
-                                <label for="select">Qty</label>
+                                <label for="select">Cantidad</label>
                                 <select name="" id="select">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -34,7 +34,8 @@
                                 </select>
                             </div>
                             <div class="col-6 text-end">
-                                <button id="add-button" value="{{product.id}}" type="button" class="btn btn-outline-dark btn-sm">Add to basket</button>
+                                <button id="add-button" value="{{product.id}}" type="button"
+                                    class="btn btn-outline-dark btn-sm">Añadir al carrito</button>
                             </div>
                         </div>
                     </div>
@@ -46,7 +47,7 @@
 </div>
 
 <script>
-    $(document).on('click', '#add-button', function(e){
+    $(document).on('click', '#add-button', function (e) {
         e.preventDefault();
         $.ajax({
             type: 'POST',
@@ -57,16 +58,16 @@
                 csrfmiddlewaretoken: "{{csrf_token}}",
                 action: 'post'
             },
-            success: function (json){
+            success: function (json) {
                 document.getElementById("basket-qty").innerHTML = json.qty
 
             },
-            error: function (xhr, errmsg, err){
+            error: function (xhr, errmsg, err) {
 
             }
         });
     })
- 
-    
+
+
 </script>
 {% endblock %}

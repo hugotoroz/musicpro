@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-#&rohuqrmjzn@9nixi38!-+3p_*=klp%(8x)ngo-a4o0(n36=z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.88','localhost','.vercel.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -95,7 +95,7 @@ DATABASES = {
         'NAME': 'prueba_mp2',
         'USER': 'musicpro',
         'PASSWORD': '123',
-        'HOST': '192.168.1.88',
+        'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS':{
             'init_command': 'SET default_storage_engine=INNODB',

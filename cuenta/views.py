@@ -4,6 +4,7 @@ from order.views import user_orders
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm
 
+
 def logout_view(request):
     logout(request)
     return redirect('../../cuenta/login')

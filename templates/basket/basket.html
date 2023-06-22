@@ -38,7 +38,6 @@ Carrito de compras
                                     <button id="add-button" data-index="{{product.id}}" type="button" class="btn btn-outline-dark btn-sm update-button">Actualizar</button>
                                     <button id="delete-button" data-index="{{product.id}}" type="button" class="btn btn-outline-danger btn-sm delete-button">Eliminar</button>
                                     
-                                    <a role="button" href="{% url 'payment:basket' %}" class="btn btn-success btn-sm fw-bold" type="button">Pagar</a>
                                 </div>
                                     
                             </div>
@@ -53,6 +52,7 @@ Carrito de compras
             <div class="h6 fw-bold">
                 Total: $<div class="d-inline-flex" id="subtotal">{{basket.get_total_price}}</div>
             </div>
+            <a role="button" href="{% url 'payment:basket' %}" class="btn btn-success btn-sm fw-bold" type="button">Pagar</a>
         </div>
     </div>
 </main>

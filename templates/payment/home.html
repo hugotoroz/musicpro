@@ -27,7 +27,7 @@
                 <div class="container">
                     <div class="row">
                         <div id="payment-form" class="col-12 col-lg-6 mx-auto">
-                            <h3 class="mb-3">Billing address</h3>
+                            <h3 class="mb-3">Datos de facturación</h3>
                         
                             <!-- Error messages in this element -->
                             <div id="card-errors" class="a" role="alert"></div>
@@ -35,53 +35,53 @@
                             <form>
                                 <div class="row g-3">
                                 <div class="col-sm-7">
-                                    <label for="firstName" class="form-label">Customer Name</label>
+                                    <label for="firstName" class="form-label">Nombre Completo</label>
                                     <input type="text" class="form-control" id="custName" placeholder="" required>
                                     <div class="invalid-feedback">
                                     Valid first name is required.
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
+                                    <label for="email" class="form-label">Correo electrónico <span class="text-muted">(Opcional)</span></label>
                                     <input type="email" class="form-control" id="email" placeholder="you@example.com">
                                     <div class="invalid-feedback">
                                     Please enter a valid email address for shipping updates.
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <label for="address" class="form-label">Address</label>
+                                    <label for="address" class="form-label">Dirección</label>
                                     <input type="text" class="form-control" id="custAdd" placeholder="1234 Main St" required>
                                     <div class="invalid-feedback">
                                     Please enter your shipping address.
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <label for="address2" class="form-label">Address 2 <span
-                                        class="text-muted">(Optional)</span></label>
+                                    <label for="address2" class="form-label">Dirección 2 <span
+                                        class="text-muted">(Opcional)</span></label>
                                     <input type="text" class="form-control" id="custAdd2" placeholder="Apartment or suite">
                                 </div>
                                 <div class="col-md-5">
-                                    <label for="country" class="form-label">Country</label>
+                                    <label for="country" class="form-label">País</label>
                                     <select class="form-select" id="country" required>
-                                    <option value="">Choose...</option>
-                                    <option>United States</option>
+                                    <option value="">Seleccione un país...</option>
+                                    <option>Chile</option>
                                     </select>
                                     <div class="invalid-feedback">
                                     Please select a valid country.
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="state" class="form-label">State</label>
+                                    <label for="state" class="form-label">Región</label>
                                     <select class="form-select" id="state" required>
-                                    <option value="">Choose...</option>
-                                    <option>California</option>
+                                    <option value="">Seleccione una región...</option>
+                                    <option>Metropolitana de Santiago</option>
                                     </select>
                                     <div class="invalid-feedback">
                                     Please provide a valid state.
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="Postcode" class="form-label">Postcode</label>
+                                    <label for="Postcode" class="form-label">Código Postal</label>
                                     <input type="text" class="form-control" id="postCode" placeholder="" required>
                                     <div class="invalid-feedback">
                                     Zip code required.
@@ -89,13 +89,13 @@
                                 </div>
                                 </div>
                                 <hr class="my-4">
-                                <h4 class="mb-3">Payment</h4>
-                                <label for="card-element">Credit or debit card</label>
+                                <h4 class="mb-3">Pago</h4>
+                                <label for="card-element">Ingrese una tarjeta de débito o crédito.</label>
                                 <div id="card-element" class="form-control form-control-payment">
                                 <!-- Payment elements will appear here -->
                                 </div>
                                 <hr class="my-4">
-                                <button id="submit" class="btn btn-primary w-100 fw-bold" data-secret="{{ client_secret }}">Pay</button>
+                                <button id="submit" class="btn btn-primary w-100 fw-bold" data-secret="{{ client_secret }}">Proceder al pago</button>
                             </form>
                         </div>
 

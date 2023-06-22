@@ -6,25 +6,25 @@ SignUp
 
 {% block content %}
     <div class="mx-auto bg-light rounded p-5" style="width: 700px; margin-top: 50px;"> 
-        <h2 class="mb-4">Sign up</h2>
+        <h2 class="mb-4">Registrarse</h2>
         <form method="post" action=".">
             {% csrf_token %}
 
 
             <div class="mb-3">
-                <label class="d-block mb-2" for="">Username</label>
+                <label class="d-block mb-2" for="">Nombre de usuario</label>
                 {{ form.username }}
             </div>
             <div class="mb-3">
-                <label class="d-block" for="">Email</label>
+                <label class="d-block" for="">Correo electrónico</label>
                 {{ form.email }}
             </div>
             <div class="mb-3">
-                <label class="d-block" for="">Password</label>
+                <label class="d-block" for="">Contraseña</label>
                 {{ form.password1 }}
             </div>
             <div class="mb-3">
-                <label class="d-block" for="">Repeat password</label>
+                <label class="d-block" for="">Repetir contraseña</label>
                 {{ form.password2 }}
             </div>
 
@@ -38,7 +38,7 @@ SignUp
             </div>
             {% endif %}
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
         </form>
 
         
